@@ -1,0 +1,44 @@
+body，html{
+  line-height: 1;
+  font-weight:200;
+  font-family: 'PingFang SC','STHeitiSC-Light','Helvetica-Light',Arial, Helvetica, sans-serif
+}
+.clearfix{
+  display: inline-block;
+}
+.clearfix:after{
+  content: ".";
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.tab {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 1px solid rgba(7, 17, 27, 0.1);
+  position: relative；
+}
+.tab:after{
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  border-top: 1px solid rgba(7, 17, 27, 0.1);
+  width: 100%;
+  content: ""
+}
+.tab .tab-item {
+  flex: 1;
+  text-align: center;
+}
+.tab .tab-item a {
+  display: block;/*撑满容器，方便点击*/
+  font-size: 14px;
+  color: rgb(77, 85, 93);
+}
+.tab .tab-item .active {
+  color: rgb(240, 20, 20);
+}
