@@ -8,41 +8,30 @@ var app = express();
 var router = express.Router();
 
 router.get('/', function (req, res, next) {
-	req.url = '/index.html';
-	next();
+  req.url = '/index.html';
+  next();
 });
 
 app.use(router);
-
 var appData = require('./data.json');
-var seller = appData.seller;
-var goods = appData.goods;
-var ratings = appData.ratings;
+var user = appData.user; // 接口
+var dataCenter = appData.data_center;
 
-var apiRoutes = express.Router();
-
-apiRoutes.get('/seller', function (req, res) {
-	res.json({
-		errno: 0,
-		data: seller
-	});
+var apiRouter = express.Router();
+apiRouter.get('/user', function (req, res) {
+  res.json({
+    errno: 0,
+    data: user
+  });
+});
+apiRouter.get('/data_center', function (req, res) {
+  res.json({
+    errno: 0,
+    data: dataCenter
+  });
 });
 
-apiRoutes.get('/goods', function (req, res) {
-	res.json({
-		errno: 0,
-		data: goods
-	});
-});
-
-apiRoutes.get('/ratings', function (req, res) {
-	res.json({
-		errno: 0,
-		data: ratings
-	});
-});
-
-app.use('/api', apiRoutes);
+app.use('/api', apiRouter);
 
 app.use(express.static('./dist'));
 

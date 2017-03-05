@@ -18,9 +18,7 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 var appData = require('../data.json')
 var user = appData.user;//接口
-var goods = appData.goods;
-var ratings = appData.ratings;
-
+var dataCenter = appData.data_center;
 // API
 var apiRouter = express.Router();
 apiRouter.get('/user', function (req, res) {
@@ -29,16 +27,10 @@ apiRouter.get('/user', function (req, res) {
     data: user
   });
 })
-apiRouter.get('/goods', function (req, res) {
+apiRouter.get('/data_center', function (req, res) {
   res.json({
     errno: 0,
-    data: goods
-  });
-})
-apiRouter.get('/ratings', function (req, res) {
-  res.json({
-    errno: 0,
-    data: ratings
+    data: dataCenter
   });
 })
 app.use('/api', apiRouter);
