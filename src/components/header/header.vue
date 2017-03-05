@@ -36,7 +36,7 @@
 <style>
   header {
     background-color: rgb(32, 160, 255);
-    height: 60px;
+    height: 80px;
     position: absolute;
     width: 100%;
     top: 0;
@@ -61,7 +61,7 @@
     vertical-align: middle;
     padding: 0 10px;
     margin: 0 10px;
-    line-height: 60px;
+    line-height: 80px;
     cursor: pointer;
   }
   .header-operations li:first-child{
