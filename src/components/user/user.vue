@@ -1,5 +1,5 @@
 <template>
-    <div>goods</div>
+    <div>user</div>
 </template>
 <script type="text/ecmascript-6">
 export default {};
