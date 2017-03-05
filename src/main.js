@@ -6,9 +6,8 @@ import VueResource from 'vue-resource';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import App from './App';
-import goods from './components/goods/goods';
-import ratings from './components/ratings/ratings';
-import seller from './components/seller/seller';
+import user from './components/user/user';
+import dataCenter from './components/data/data';
 import './common/styles/icon.css';
 import './common/styles/base.css';
 Vue.use(VueRouter);// 安装路由功能
@@ -22,9 +21,9 @@ let routes = [
     name: 'index',
     component: App,
     children: [
-      {path: '/goods', component: goods},
-      {path: '/ratings', component: ratings},
-      {path: '/seller', component: seller}
+      {path: '', component: dataCenter}, // 默认dataCenter
+      {path: '/user', component: user},
+      {path: '/data_center', component: dataCenter}
     ]
   }
 ];
