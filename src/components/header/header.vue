@@ -1,7 +1,7 @@
 <template>
   <div>
     <header>
-      <img src="./logo-header.png" alt="logo" class="header-logo">
+      <img src="./logo.svg" alt="logo" class="header-logo">
       <ul class="header-operations">
         <li>
           <span class="header-lang is-active">{{user.name}}</span>
