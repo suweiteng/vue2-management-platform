@@ -20,7 +20,7 @@
 </template>
 <script>
   import header from './components/header/header.vue';
-  const ERR_OK = 0;
+//  const ERR_OK = 0;
   export default {
     data () {
       return {
@@ -28,12 +28,15 @@
       };
     },
     created () {
-      this.$http.get('/api/user').then((response) => {
-        response = response.body;
-        if (response.errno === ERR_OK) {
-          this.user = response.data;
-        }
-      });
+      var appData = require('../data.json');
+      this.user = appData.user;
+// 为了github pages，原接口改为本地数据
+//      this.$http.get('/api/user').then((response) => {
+//        response = response.body;
+//        if (response.errno === ERR_OK) {
+//          this.user = response.data;
+//        }
+//      });
     },
     components: {
       'v-header': header
