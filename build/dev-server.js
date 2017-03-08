@@ -16,7 +16,7 @@ var proxyTable = config.dev.proxyTable
 
 // mock数据
 var app = express()
-var appData = require('../data.json')
+var appData = require('./data.json')
 var user = appData.user;//接口
 var dataCenter = appData.data_center;
 // API
