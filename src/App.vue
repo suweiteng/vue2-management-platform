@@ -41,6 +41,12 @@
   };
 </script>
 <style>
+  html, body,#app{
+    height: 100%;
+  }
+  body{
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+  }
   .menu, .el-menu {
     height: 100%;
   }
@@ -50,4 +56,3 @@
     height: 100%;
   }
 </style>
-
