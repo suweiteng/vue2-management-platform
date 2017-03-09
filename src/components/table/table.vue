@@ -4,7 +4,7 @@
       <el-col :span="24">
         <!--表单-->
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
-          <el-form-item label="审批人">
+          <el-form-item label="姓名">
             <el-input v-model="formInline.user" placeholder="审批人"></el-input>
           </el-form-item>
           <el-form-item label="活动区域">
@@ -18,7 +18,7 @@
         </el-form>
         <!--表格-->
         <el-table
-          :data="tableData3"
+          :data="tableData"
           border
           style="width: 100%">
           <el-table-column
@@ -41,28 +41,30 @@
   </section>
 </template>
 <script type="text/ecmascript-6">
-export default {
-  data () {
-    return {
-      formInline: {
-        user: '',
-        region: ''
-      },
-      tableData3: []
-    };
-  },
-  created () {
-    var appData = require('../../../data.json');
-    this.tableData3 = appData.tableData;
-  },
-  methods: {
-    onSubmit () {
-      var appData = require('../../../data.json');
-      this.tableData3 = appData.tableData2;
-      console.log(this.tableData3);
-    }
+  const ERR_OK = "000";
+  export default {
+    data () {
+      return {
+        formInline: {
+          user: '',
+          region: ''
+        },
+        tableData: []
+      };
+    },
+    created () {
+      this.$http.get('/api/getTable').then((response) => {
+        response = response.body;
+        if (response.code === ERR_OK) {
+          this.tableData = response.datas;
+        }
+      });
+    },
+    methods: {
+      onSubmit () {
 
-  }
+      }
+    }
 };
 </script>
 <style>

@@ -6,8 +6,8 @@ import VueResource from 'vue-resource';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import App from './App';
-import table from './components/table/table';
-import form from './components/form/form';
+import Table from './components/table/table';
+import Form from './components/form/form';
 import './common/styles/icon.css';
 import './common/styles/base.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -24,9 +24,9 @@ let routes = [
     name: 'index',
     component: App,
     children: [
-      {path: '', component: table}, // 默认table
-      {path: '/table', component: table},
-      {path: '/form', component: form}
+      {path: '', component: Table}, // 默认Table
+      {path: '/table', component: Table},
+      {path: '/form', component: Form}
     ]
   }
 ];
