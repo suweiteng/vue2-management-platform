@@ -4,11 +4,14 @@
 import Mock from 'mockjs';
 
 export default {
-  haha (){
-    Mock.mock('/api/user2', {
-      "name": "尼古拉斯赵四",
-      "area": "华东区",
-      "identity": "超级管理员"
+  mockData () {
+    Mock.mock('/api/user', {
+      "code": "000",
+      "datas": {
+        "name": "@cname", // 内容：npm安装后 mockjs/src/mock/random/xxx.js
+        "area": "@province(true)",
+        "identity": "超级管理员"
+      }
       // 'name': '@name',
       // 'age|1-100': 100,
       // 'color': '@color'
@@ -17,9 +20,6 @@ export default {
       "name": "22尼古拉斯赵四",
       "area": "华东区",
       "identity": "超级管理员"
-      // 'name': '@name',
-      // 'age|1-100': 100,
-      // 'color': '@color'
     });
   }
 };

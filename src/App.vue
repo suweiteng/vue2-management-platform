@@ -29,7 +29,7 @@
 <script>
   import header from './components/header/header.vue';
 
-  const ERR_OK = 0;
+  const ERR_OK = "000";
   export default {
     data () {
       return {
@@ -37,30 +37,16 @@
       };
     },
     created () {
-//      var appData = require('../data.json');
-//      this.user = appData.user;
-// 为了github pages，原接口改为本地数据
 //      this.$http.get('/api/user').then((response) => {
 //        response = response.body;
 //        if (response.errno === ERR_OK) {
 //          this.user = response.data;
 //        }
 //      });
-      this.$http.get('/api/user2').then((response) => {
-        console.log(response);
-        console.log(response.ok);
+      this.$http.get('/api/user').then((response) => {
         response = response.body;
-        if (response.errno === ERR_OK) {
-          this.user = response.data;
-        }
-      });
-
-      this.$http.get('/api/user3').then((response) => {
-        console.log(response);
-        console.log(response.ok);
-        response = response.body;
-        if (response.errno === ERR_OK) {
-          this.user = response.data;
+        if (response.code === ERR_OK) {
+          this.user = response.datas;
         }
       });
     },

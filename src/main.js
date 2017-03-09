@@ -12,7 +12,7 @@ import './common/styles/icon.css';
 import './common/styles/base.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Mock from './mock/mock';
-Mock.haha();
+Mock.mockData();
 Vue.use(VueRouter);// 安装路由功能
 /* eslint-disable no-new */
 Vue.use(VueRouter);
