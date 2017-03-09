@@ -18,7 +18,6 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 var appData = require('../data.json')
 var user = appData.user;//接口
-var dataCenter = appData.data_center;
 // API
 var apiRouter = express.Router();
 apiRouter.get('/user', function (req, res) {

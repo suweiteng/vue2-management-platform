@@ -6,10 +6,11 @@ import VueResource from 'vue-resource';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import App from './App';
-import user from './components/user/user';
-import dataCenter from './components/data/data';
+import table from './components/table/table';
+import form from './components/form/form';
 import './common/styles/icon.css';
 import './common/styles/base.css';
+import 'font-awesome/css/font-awesome.min.css';
 Vue.use(VueRouter);// 安装路由功能
 /* eslint-disable no-new */
 Vue.use(VueRouter);
@@ -21,9 +22,9 @@ let routes = [
     name: 'index',
     component: App,
     children: [
-      {path: '', component: dataCenter}, // 默认dataCenter
-      {path: '/user', component: user},
-      {path: '/data_center', component: dataCenter}
+      {path: '', component: table}, // 默认table
+      {path: '/table', component: table},
+      {path: '/form', component: form}
     ]
   }
 ];
