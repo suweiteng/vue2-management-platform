@@ -23,5 +23,26 @@ export default {
         }
       ]
     });
+    Mock.mock('/api/getOptions', {
+      "code": "000",
+      "datas|5-7": [
+        {
+          "label": '广东省',
+          "value": "@natural(10, 100)",
+          "children|5-8": [
+            {
+              "label": '深圳市',
+              "value": "@natural(10, 100)",
+              "children|5-5": [
+                {
+                  "label": '南山区',
+                  "value": "@natural(10, 100)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    });
   }
 };

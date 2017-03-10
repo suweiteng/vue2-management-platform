@@ -5,16 +5,20 @@
         <!--表单-->
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="姓名">
-            <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+            <el-input v-model="formInline.user.name" placeholder="姓名"></el-input>
           </el-form-item>
-          <el-form-item label="活动区域">
-            <el-select v-model="formInline.region" placeholder="活动区域">
-              <el-option label="区域一" value="shanghai"></el-option>
-              <el-option label="区域二" value="beijing"></el-option>
-            </el-select>
-          </el-form-item><el-form-item>
+          <el-form-item label="年份">
+            <el-date-picker
+              v-model="formInline.user.date"
+              align="right"
+              type="year"
+              placeholder="选择年份">
+            </el-date-picker>
+          </el-form-item>
+          <el-form-item label="地址">
+            <el-cascader expand-trigger="hover" :options="options" v-model="formInline.user.address" @change="handleChange"></el-cascader>
+          </el-form-item>
           <el-button type="primary" @click="onSubmit">查询</el-button>
-        </el-form-item>
         </el-form>
         <!--表格-->
         <el-table
@@ -46,10 +50,14 @@
     data () {
       return {
         formInline: {
-          user: '',
-          region: ''
+          user: {
+            name: '',
+            date: '',
+            address: []
+          }
         },
-        tableData: []
+        tableData: [],
+        options: []
       };
     },
     created () {
@@ -59,10 +67,18 @@
           this.tableData = response.datas;
         }
       });
+      this.$http.get('/api/getOptions').then((response) => {
+        response = response.body;
+        if (response.code === ERR_OK) {
+          this.options = response.datas;
+        }
+      });
     },
     methods: {
       onSubmit () {
-
+      },
+      handleChange (value) {
+//        console.log(value);
       }
     }
 };
