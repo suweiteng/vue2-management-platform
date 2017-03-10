@@ -8,8 +8,6 @@ import 'element-ui/lib/theme-default/index.css';
 import App from './App';
 import Table from './components/table/table';
 import Form from './components/form/form';
-import './common/styles/icon.css';
-import './common/styles/base.css';
 import 'font-awesome/css/font-awesome.min.css';
 import Mock from './mock/mock';
 Mock.mockData();

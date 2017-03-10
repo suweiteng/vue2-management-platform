@@ -19,7 +19,7 @@ export default {
         {
           "date": '@date("yyyy-MM-dd")',
           "name": "@cname",
-          "address": "@csentence"
+          "address": "@county(true)"
         }
       ]
     });

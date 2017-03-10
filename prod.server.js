@@ -13,25 +13,25 @@ router.get('/', function (req, res, next) {
 });
 
 app.use(router);
-var appData = require('./data.json');
-var user = appData.user; // 接口
-var dataCenter = appData.data_center;
-
-var apiRouter = express.Router();
-apiRouter.get('/user', function (req, res) {
-  res.json({
-    errno: 0,
-    data: user
-  });
-});
-apiRouter.get('/data_center', function (req, res) {
-  res.json({
-    errno: 0,
-    data: dataCenter
-  });
-});
-
-app.use('/api', apiRouter);
+// var appData = require('./data.json');
+// var user = appData.user; // 接口
+// var dataCenter = appData.data_center;
+//
+// var apiRouter = express.Router();
+// apiRouter.get('/user', function (req, res) {
+//   res.json({
+//     errno: 0,
+//     data: user
+//   });
+// });
+// apiRouter.get('/data_center', function (req, res) {
+//   res.json({
+//     errno: 0,
+//     data: dataCenter
+//   });
+// });
+//
+// app.use('/api', apiRouter);
 
 app.use(express.static('./dist'));
 
