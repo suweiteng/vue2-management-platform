@@ -7,10 +7,10 @@ var app = express();
 
 var router = express.Router();
 
-router.get('/', function (req, res, next) {
-  req.url = '/index.html';
-  next();
-});
+// router.get('/', function (req, res, next) {
+//   req.url = '/index.html';
+//   next();
+// });
 
 app.use(router);
 // var appData = require('./data.json');
