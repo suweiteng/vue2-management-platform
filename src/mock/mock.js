@@ -15,7 +15,7 @@ export default {
     });
     Mock.mock('/api/getTable', {
       "code": "000",
-      "datas|5-25": [
+      "datas|5-20": [
         {
           "date": '@date("yyyy-MM-dd")',
           "name": "@cname",
@@ -41,6 +41,12 @@ export default {
               ]
             }
           ]
+        }
+      ],
+      "places|9-18": [
+        {
+          "label": '广东省',
+          "value": "@natural(10, 100)"
         }
       ]
     });

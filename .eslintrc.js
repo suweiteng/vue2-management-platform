@@ -23,6 +23,7 @@ module.exports = {
     "space-before-blocks": [1, "always"], //代码块前的空格
     "space-before-function-paren": [0, "always"],//函数定义时，function关键字后面的小括号前是否需要加空格
     "quotes": [0, "never"],
-    "comma-dangle": [0, "never"]//最后一个逗号控制
+    "comma-dangle": [0, "never"],//最后一个逗号控制,
+    "no-undef": 0
   }
 }
