@@ -57,6 +57,16 @@
             </template>
           </el-table-column>
         </el-table>
+        <div class="block">
+          <el-pagination
+            @size-change="handleSizeChange"
+            @current-change="handleCurrentChange"
+            :current-page="currentPage"
+            :page-size="100"
+            layout="prev, pager, next, jumper"
+            :total="1000">
+          </el-pagination>
+        </div>
       </el-col>
     </el-row>
     <el-dialog title="修改个人信息" v-model="dialogFormVisible" size="tiny">
@@ -101,7 +111,8 @@
           name: '',
           address: '',
           date: '',
-        }
+        },
+        currentPage: 4
       };
     },
     created () {
@@ -135,8 +146,19 @@
           this.dialogFormVisible = false;
         });
       },
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+      },
+      handleCurrentChange(val) {
+        this.currentPage = val;
+        console.log(`当前页: ${val}`);
+      }
     }
 };
 </script>
 <style>
+  .el-pagination {
+    text-align: center;
+    margin-top: 30px;
+  }
 </style>
