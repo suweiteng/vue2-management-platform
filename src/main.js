@@ -9,8 +9,7 @@ import App from './App';
 import Index from './components/index/index';
 import Table from './components/table/table';
 import Form from './components/form/form';
-import other1 from './components/other/other1';
-import other2 from './components/other/other2';
+import other from './components/other/other';
 import 'font-awesome/css/font-awesome.min.css';
 import Mock from './mock/mock';
 Mock.mockData();
@@ -29,8 +28,7 @@ let routes = [
       {path: '/index', component: Index},
       {path: '/table', component: Table},
       {path: '/form', component: Form},
-      {path: '/other1', component: other1},
-      {path: '/other2', component: other2}
+      {path: '/other', component: other},
     ]
   }
 ];

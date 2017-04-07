@@ -2,18 +2,11 @@
   <div style="height: 100%">
     <v-header :user="user"></v-header>
     <el-row class="container">
-      <el-col :span="4" class="menu" >
-        <el-menu default-active="/table" :router="true">  <!--还要在main.js修改默认-->
-          <el-menu-item index="/index"><i class="fa fa-line-chart"></i>index</el-menu-item>
-          <el-menu-item index="/table"><i class="fa fa-table"></i>Table</el-menu-item>
-          <el-menu-item index="/form"><i class="fa fa-newspaper-o"></i>Form</el-menu-item>
-          <el-submenu index="1">
-            <template slot="title"><i class="el-icon-menu"></i>第三方</template>
-              <el-menu-item index="/other1"><i class="fa fa-plug"></i>空白1</el-menu-item>
-              <el-menu-item index="/other2"><i class="fa fa-plug"></i>空白2</el-menu-item>
-            </el-submenu>
-          </el-submenu>
-        </el-menu>
+      <el-col :span="4" class="menu menu-list-router" >
+        <router-link to="/index"><i class="fa fa-line-chart"></i>index</router-link>
+        <router-link to="/table"><i class="fa fa-table"></i>Table</router-link>
+        <router-link to="/form" ><i class="fa fa-newspaper-o"></i>Form</router-link>
+        <router-link to="/other"><i class="fa fa-plug"></i>其他</router-link>
       </el-col>
       <el-col :span="20">
         <div>
@@ -64,6 +57,7 @@
   }
   .menu, .el-menu {
     height: 100%;
+    padding-left: 20px;
   }
   .container {
     padding-top: 80px;
@@ -76,5 +70,21 @@
   i.fa{
     vertical-align: baseline;
     margin-right: 10px;
+  }
+  /* 左侧导航菜单active时蓝色 */
+  .container .menu-list-router a {
+    display: block;
+    color: #48576a;
+    line-height: 30px;
+    padding: 10px;
+  }
+
+  .container .menu-list-router a:hover {
+    background: #EEEEEE;
+  }
+
+  .container .menu-list-router a.active {
+    color: #20a0ff !important;
+    margin: 0;
   }
 </style>
