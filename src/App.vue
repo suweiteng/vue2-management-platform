@@ -4,12 +4,13 @@
     <el-row class="container">
       <el-col :span="4" class="menu" >
         <el-menu default-active="/table" :router="true">  <!--还要在main.js修改默认-->
+          <el-menu-item index="/index"><i class="fa fa-line-chart"></i>index</el-menu-item>
           <el-menu-item index="/table"><i class="fa fa-table"></i>Table</el-menu-item>
           <el-menu-item index="/form"><i class="fa fa-newspaper-o"></i>Form</el-menu-item>
           <el-submenu index="1">
             <template slot="title"><i class="el-icon-menu"></i>第三方</template>
-              <el-menu-item index="1-1"><i class="fa fa-line-chart"></i>Echarts</el-menu-item>
-              <el-menu-item index="1-2"><i class="fa fa-plug"></i>其他</el-menu-item>
+              <el-menu-item index="/other1"><i class="fa fa-plug"></i>空白1</el-menu-item>
+              <el-menu-item index="/other2"><i class="fa fa-plug"></i>空白2</el-menu-item>
             </el-submenu>
           </el-submenu>
         </el-menu>
