@@ -161,11 +161,6 @@
         }).catch(() => {
 
         });
-        this.$refs.form.validate((valid) => {
-          if (true) {
-
-          }
-        });
       },
       handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
