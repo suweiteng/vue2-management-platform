@@ -16,16 +16,16 @@
             </el-date-picker>
           </el-form-item>
           <el-form-item label="地址">
-            <el-cascader expand-trigger="hover" :options="options" v-model="formInline.user.address" ></el-cascader>
+            <el-cascader expand-trigger="hover" :options="options" v-model="formInline.user.address"></el-cascader>
           </el-form-item>
           <el-form-item label="籍贯">
-          <el-select v-model="formInline.user.place" placeholder="请选择" >
-            <el-option
-              v-for="item in places"
-              :label="item.label"
-              :value="item.value">
-            </el-option>
-          </el-select>
+            <el-select v-model="formInline.user.place" placeholder="请选择">
+              <el-option
+                v-for="item in places"
+                :label="item.label"
+                :value="item.value">
+              </el-option>
+            </el-select>
           </el-form-item>
           <el-button type="primary" @click="onSubmit">查询</el-button>
         </el-form>
@@ -70,7 +70,7 @@
       </el-col>
     </el-row>
     <el-dialog title="修改个人信息" v-model="dialogFormVisible" size="tiny">
-        <el-form ref="form" :model="form" label-width="80px">
+      <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="姓名">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
@@ -78,10 +78,10 @@
           <el-input v-model="form.address"></el-input>
         </el-form-item>
         <el-form-item label="出生日期">
-            <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
+          <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" @click="handleSave">修改</el-button>
+          <el-button type="primary" @click="handleSave" :loading="editLoading">修改</el-button>
           <el-button @click="dialogFormVisible = false">取消</el-button>
         </el-form-item>
       </el-form>
@@ -107,12 +107,14 @@
         options: [],
         places: [],
         dialogFormVisible: false,
+        editLoading: false,
         form: {
           name: '',
           address: '',
           date: '',
         },
-        currentPage: 4
+        currentPage: 4,
+        table_index: 999,
       };
     },
     created () {
@@ -139,11 +141,30 @@
       },
       handleEdit (index, row) {
         this.dialogFormVisible = true;
-        this.form = row
+        this.form = Object.assign({}, row);
+        this.table_index = index;
       },
       handleSave () {
-        this.$confirm('确认保存吗？', '提示', {}).then(() => {
+//        this.$confirm('确认保存吗？', '提示', {}).then(() => {
+//          this.dialogFormVisible = false;
+//        });
+        this.$confirm('确认提交吗？', '提示', {
+        }).then(() => {
+          this.editLoading = true;
+          this.tableData[this.table_index] = this.form;
+          this.$message({
+            message: "操作成功！",
+            type: 'success'
+          });
+          this.editLoading = false;
           this.dialogFormVisible = false;
+        }).catch(() => {
+
+        });
+        this.$refs.form.validate((valid) => {
+          if (true) {
+
+          }
         });
       },
       handleSizeChange(val) {
@@ -154,7 +175,7 @@
         console.log(`当前页: ${val}`);
       }
     }
-};
+  };
 </script>
 <style>
   .el-pagination {
