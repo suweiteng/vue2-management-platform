@@ -145,10 +145,10 @@
         this.table_index = index;
       },
       handleSave () {
-//        this.$confirm('确认保存吗？', '提示', {}).then(() => {
-//          this.dialogFormVisible = false;
-//        });
         this.$confirm('确认提交吗？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          cancelButtonClass: 'cancel'
         }).then(() => {
           this.editLoading = true;
           this.tableData[this.table_index] = this.form;
@@ -181,5 +181,9 @@
   .el-pagination {
     text-align: center;
     margin-top: 30px;
+  }
+  .el-message-box__btns .cancel {
+    float: right;
+    margin-left: 10px;
   }
 </style>
