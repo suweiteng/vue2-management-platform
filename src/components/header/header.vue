@@ -20,17 +20,8 @@
     },
     data () {
       return {
-        detailShow: false
       };
     },
-    methods: {
-      showDetail () {
-        this.detailShow = true;
-      },
-      hideDetail () {
-        this.detailShow = false;
-      }
-    }
   };
 </script>
 <style>

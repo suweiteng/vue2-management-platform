@@ -157,7 +157,7 @@
             this.form.date = date
           }
 //          this.tableData[this.table_index] = this.form;
-          this.tableData.splice(this.table_index, 1, this.form)
+          this.tableData.splice(this.table_index, 1, this.form);
           this.$message({
             message: "操作成功！",
             type: 'success'
