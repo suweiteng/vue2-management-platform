@@ -58,6 +58,7 @@
   .menu, .el-menu {
     height: 100%;
     padding-left: 20px;
+    background-color: #e6e6e6;
   }
   .container {
     padding-top: 80px;
@@ -87,4 +88,5 @@
     color: #20a0ff !important;
     margin: 0;
   }
+
 </style>

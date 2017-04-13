@@ -78,7 +78,7 @@
           <el-input v-model="form.address"></el-input>
         </el-form-item>
         <el-form-item label="出生日期">
-          <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;"></el-date-picker>
+          <el-date-picker type="date" placeholder="选择日期" v-model="form.date" style="width: 100%;" ></el-date-picker>
         </el-form-item>
         <el-form-item>
           <el-button type="primary" @click="handleSave" :loading="editLoading">修改</el-button>
@@ -151,7 +151,13 @@
           cancelButtonClass: 'cancel'
         }).then(() => {
           this.editLoading = true;
-          this.tableData[this.table_index] = this.form;
+          let date = this.form.date;
+          if (typeof date === "object") {
+            date = [date.getFullYear(), (date.getMonth() + 1), (date.getDate())].join('-');
+            this.form.date = date
+          }
+//          this.tableData[this.table_index] = this.form;
+          this.tableData.splice(this.table_index, 1, this.form)
           this.$message({
             message: "操作成功！",
             type: 'success'
