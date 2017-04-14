@@ -1,14 +1,14 @@
 <template>
-  <section class="chart-container">
+  <div class="chart-container">
     <el-row>
-      <el-col :span="12" class="data_left data_left_li">
-        <div id="main" style="height: 650px">图表加载失败</div>
+      <el-col :span="12" class="chart chart_left">
+        <div id="userChart" style="height: 650px" >图表加载失败</div>
       </el-col>
-      <el-col :span="12" class="data_left data-left-line">
-        <div id="main2" style="height: 650px">图表加载失败</div>
+      <el-col :span="12" class="chart">
+        <div id="userDoChart" style="height: 650px" >图表加载失败</div>
       </el-col>
     </el-row>
-  </section>
+  </div>
 </template>
 <script>
   import echarts from 'echarts'
@@ -21,7 +21,7 @@
     methods: {
       // 加载用户来源图
       getUserChartInit() {
-        const myChart = echarts.init(document.getElementById('main'));
+        const myChart = echarts.init(document.getElementById('userChart'));
         myChart.showLoading();
         var option = {
           title: {
@@ -111,7 +111,7 @@
       },
       // 加载每日用户行为图
       getUserDoChartInit() {
-        const myChart = echarts.init(document.getElementById('main2'));
+        const myChart = echarts.init(document.getElementById('userDoChart'));
         myChart.showLoading();
         var app = {};
         var option = null;
@@ -252,3 +252,15 @@
     }
   };
 </script>
+<style>
+  .chart-container{
+    background-color: #F2F2F2;
+  }
+  .chart{
+    background-color: white;
+    border-radius: 4px;
+  }
+  .chart_left{
+    border-right:#F2F2F2 10px solid;
+  }
+</style>

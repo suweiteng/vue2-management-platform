@@ -1,24 +1,30 @@
 <template>
-  <div style="height: 100%">
+  <el-row class="container" style="height: 100%">
     <v-header :user="user"></v-header>
-    <el-row class="container">
-      <el-col :span="4" class="menu menu-list-router" >
-        <router-link to="/index"><i class="fa fa-line-chart"></i>index</router-link>
-        <router-link to="/table"><i class="fa fa-table"></i>Table</router-link>
-        <router-link to="/form" ><i class="fa fa-newspaper-o"></i>Form</router-link>
-        <router-link to="/other"><i class="fa fa-plug"></i>其他</router-link>
-      </el-col>
-      <el-col :span="20">
-        <div>
-          <div class="content">
-            <keep-alive>
+    <el-col :span="24" class="main">
+      <el-row>
+        <el-menu :default-active="$route.path" class="mar-l el-menu-vertical-demo el-col el-col-3" light router>
+          <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
+            <el-menu-item :index="item.children[0].path"><i class="fa fa-line-chart"></i>{{item.children[0].name}}
+            </el-menu-item>
+            <el-menu-item :index="item.children[1].path"><i class="fa fa-table"></i>{{item.children[0].name}}
+            </el-menu-item>
+            <el-menu-item :index="item.children[2].path"><i class="fa fa-newspaper-o"></i>{{item.children[0].name}}
+            </el-menu-item>
+            <el-menu-item :index="item.children[3].path"><i class="fa fa-plug"></i>{{item.children[0].name}}
+            </el-menu-item>
+          </template>
+        </el-menu>
+        <section class="contentCon">
+          <el-col :span="21" :offset="3" class="content-wrapper">
+            <transition>
               <router-view></router-view>
-            </keep-alive>
-          </div>
-        </div>
-      </el-col>
-    </el-row>
-  </div>
+            </transition>
+          </el-col>
+        </section>
+      </el-row>
+    </el-col>
+  </el-row>
 </template>
 <script>
   import header from './components/header/header.vue';
@@ -49,44 +55,45 @@
   };
 </script>
 <style>
-  html, body,#app{
+
+
+  /* fa图标右侧需要流出空白 elementUI图标已自带样式 */
+  i.fa {
+    vertical-align: baseline;
+    margin-right: 10px;
+  }
+  body {
+    font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
+    background-color: #F2F2F2;
+  }
+  .menu,
+  .el-menu {
     height: 100%;
+    background-color: #E6E6E6;
+    position: fixed;
+    float: left;
   }
-  body{
-    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
-  }
-  .menu, .el-menu {
-    height: 100%;
-    padding-left: 20px;
-    background-color: #e6e6e6;
-  }
+
   .container {
     padding-top: 80px;
     height: 100%;
   }
-  .content{
+
+  .container .main {
+    padding: 0;
+  }
+
+  .container ul li.el-menu-item {
+    font-size: 100%;
+  }
+
+  .container .mar-l {
+    padding: 0;
+  }
+
+  .container .content-wrapper {
     padding: 20px;
-  }
-  /* fa图标右侧需要流出空白 elementUI图标已自带样式 */
-  i.fa{
-    vertical-align: baseline;
-    margin-right: 10px;
-  }
-  /* 左侧导航菜单active时蓝色 */
-  .container .menu-list-router a {
-    display: block;
-    color: #48576a;
-    line-height: 30px;
-    padding: 10px;
-  }
-
-  .container .menu-list-router a:hover {
-    background: #EEEEEE;
-  }
-
-  .container .menu-list-router a.active {
-    color: #20a0ff !important;
-    margin: 0;
   }
 
 </style>
+
