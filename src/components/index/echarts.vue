@@ -2,10 +2,10 @@
   <section class="chart-container">
     <el-row>
       <el-col :span="12" class="data_left data_left_li">
-        <div id="main" style="height: 500px">gfd</div>
+        <div id="main" style="height: 650px">图表加载失败</div>
       </el-col>
       <el-col :span="12" class="data_left data-left-line">
-        <div id="main2" style="height: 500px">gfd</div>
+        <div id="main2" style="height: 650px">图表加载失败</div>
       </el-col>
     </el-row>
   </section>
@@ -15,19 +15,17 @@
   export default {
     data() {
       return {
-        myChart: null
+
       };
     },
     methods: {
-      // 加载图表
-      getChartInit() {
-        console.log("dd");
-        this.myChart = echarts.init(document.getElementById('main'));
-        this.myChart2 = echarts.init(document.getElementById('main2'));
-        this.myChart.showLoading();
+      // 加载用户来源图
+      getUserChartInit() {
+        const myChart = echarts.init(document.getElementById('main'));
+        myChart.showLoading();
         var option = {
           title: {
-            text: '用户区域图'
+            text: '用户来源'
           },
           tooltip: {
             trigger: 'axis',
@@ -39,7 +37,7 @@
             }
           },
           legend: {
-            data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎']
+            data: ['华东', '华北', '华南', '西部', '其他']
           },
           toolbox: {
             feature: {
@@ -66,35 +64,35 @@
           ],
           series: [
             {
-              name: '邮件营销',
+              name: '华东',
               type: 'line',
               stack: '总量',
               areaStyle: {normal: {}},
               data: [120, 132, 101, 134, 90, 230, 210]
             },
             {
-              name: '联盟广告',
+              name: '华北',
               type: 'line',
               stack: '总量',
               areaStyle: {normal: {}},
               data: [220, 182, 191, 234, 290, 330, 310]
             },
             {
-              name: '视频广告',
+              name: '华南',
               type: 'line',
               stack: '总量',
               areaStyle: {normal: {}},
               data: [150, 232, 201, 154, 190, 330, 410]
             },
             {
-              name: '直接访问',
+              name: '西部',
               type: 'line',
               stack: '总量',
               areaStyle: {normal: {}},
               data: [320, 332, 301, 334, 390, 330, 320]
             },
             {
-              name: '搜索引擎',
+              name: '其他',
               type: 'line',
               stack: '总量',
               label: {
@@ -108,15 +106,148 @@
             }
           ]
         };
-        this.myChart.setOption(option);
-        this.myChart2.setOption(option);
-        this.myChart.hideLoading();
+        myChart.setOption(option);
+        myChart.hideLoading();
+      },
+      // 加载每日用户行为图
+      getUserDoChartInit() {
+        const myChart = echarts.init(document.getElementById('main2'));
+        myChart.showLoading();
+        var app = {};
+        var option = null;
+        var cellSize = [80, 80];
+        var pieRadius = 30;
+
+        function getVirtulData() {
+          var date = +echarts.number.parseDate('2017-02-01');
+          var end = +echarts.number.parseDate('2017-03-01');
+          var dayTime = 3600 * 24 * 1000;
+          var data = [];
+          for (var time = date; time < end; time += dayTime) {
+            data.push([
+              echarts.format.formatTime('yyyy-MM-dd', time),
+              Math.floor(Math.random() * 10000)
+            ]);
+          }
+          return data;
+        }
+
+        function getPieSeries(scatterData, chart) {
+          return echarts.util.map(scatterData, function (item, index) {
+            var center = chart.convertToPixel('calendar', item);
+            return {
+              id: index + 'pie',
+              type: 'pie',
+              center: center,
+              label: {
+                normal: {
+                  formatter: '{c}',
+                  position: 'inside'
+                }
+              },
+              radius: pieRadius,
+              data: [
+                {name: '工作', value: Math.round(Math.random() * 24)},
+                {name: '娱乐', value: Math.round(Math.random() * 24)},
+                {name: '睡觉', value: Math.round(Math.random() * 24)}
+              ]
+            };
+          });
+        }
+
+        function getPieSeriesUpdate(scatterData, chart) {
+          return echarts.util.map(scatterData, function (item, index) {
+            var center = chart.convertToPixel('calendar', item);
+            return {
+              id: index + 'pie',
+              center: center
+            };
+          });
+        }
+        var scatterData = getVirtulData();
+        option = {
+          tooltip: {},
+          title: {
+            text: '每日用户行为'
+          },
+          legend: {
+            data: ['工作', '娱乐', '睡觉'],
+            bottom: 20
+          },
+          toolbox: {
+            feature: {
+              saveAsImage: {}
+            }
+          },
+          calendar: {
+            top: 'middle',
+            left: 'center',
+            orient: 'vertical',
+            cellSize: cellSize,
+            yearLabel: {
+              show: false,
+              textStyle: {
+                fontSize: 30
+              }
+            },
+            dayLabel: {
+              margin: 20,
+              firstDay: 1,
+              nameMap: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六']
+            },
+            monthLabel: {
+              show: false
+            },
+            range: ['2017-02']
+          },
+          series: [{
+            id: 'label',
+            type: 'scatter',
+            coordinateSystem: 'calendar',
+            symbolSize: 1,
+            label: {
+              normal: {
+                show: true,
+                formatter: function (params) {
+                  return echarts.format.formatTime('dd', params.value[0]);
+                },
+                offset: [-cellSize[0] / 2 + 10, -cellSize[1] / 2 + 10],
+                textStyle: {
+                  color: '#000',
+                  fontSize: 14
+                }
+              }
+            },
+            data: scatterData
+          }]
+        };
+        if (!app.inNode) {
+          var pieInitialized;
+          setTimeout(function () {
+            pieInitialized = true;
+            myChart.setOption({
+              series: getPieSeries(scatterData, myChart)
+            });
+          }, 10);
+
+          app.onresize = function () {
+            if (pieInitialized) {
+              myChart.setOption({
+                series: getPieSeriesUpdate(scatterData, myChart)
+              });
+            }
+          };
+        }
+        if (option && typeof option === "object") {
+          myChart.setOption(option, true);
+        }
+        myChart.hideLoading();
       }
     },
     mounted () {
       this.$nextTick(function () {
-        this.getChartInit();
-        // this.getUsers(this.size, this.page)// 获取用户列表 启动
+        this.getUserChartInit();
+        this.getUserDoChartInit()
       })
     }
   };
