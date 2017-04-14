@@ -42,12 +42,10 @@ let routes = [
     path: '/',
     component: App,
     children: [
-      // {path: '', component: Index}, // 默认Table
-      {path: '/index', component: Index, name: 'index'},
-      {path: '/table', component: Table, name: 'table'},
-      {path: '/form', component: Form, name: 'form'},
-      {path: '/other', component: other, name: 'other'},
-      // {path: '/data_list', component: DataList}
+      {path: '/index', component: Index, name: 'index', class: 'fa-line-chart'},
+      {path: '/table', component: Table, name: 'table', class: 'fa-table'},
+      {path: '/form', component: Form, name: 'form', class: 'fa-newspaper-o'},
+      {path: '/other', component: other, name: 'other', class: 'fa-plug'}
     ]
   }
 ];

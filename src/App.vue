@@ -2,17 +2,11 @@
   <el-row class="container" style="height: 100%">
     <v-header :user="user"></v-header>
     <el-col :span="24" class="main">
+      <!--v-if="!item.children[0].hidden"-->
       <el-row>
         <el-menu :default-active="$route.path" class="mar-l el-menu-vertical-demo el-col el-col-3" light router>
-          <template v-for="(item,index) in $router.options.routes" v-if="!item.hidden">
-            <el-menu-item :index="item.children[0].path"><i class="fa fa-line-chart"></i>{{item.children[0].name}}
-            </el-menu-item>
-            <el-menu-item :index="item.children[1].path"><i class="fa fa-table"></i>{{item.children[0].name}}
-            </el-menu-item>
-            <el-menu-item :index="item.children[2].path"><i class="fa fa-newspaper-o"></i>{{item.children[0].name}}
-            </el-menu-item>
-            <el-menu-item :index="item.children[3].path"><i class="fa fa-plug"></i>{{item.children[0].name}}
-            </el-menu-item>
+          <template v-for="(item,index) in $router.options.routes[0].children" v-if="!item.hidden">
+            <el-menu-item :index="item.path" ><i class="fa" :class="item.class"></i>{{item.name}}</el-menu-item>
           </template>
         </el-menu>
         <section class="contentCon">
@@ -48,6 +42,11 @@
           this.user = response.datas;
         }
       });
+    },
+    beforeCreate () {
+      if (this.$route.path === '/') {
+        this.$router.push({path: '/index'})
+      }
     },
     components: {
       'v-header': header
