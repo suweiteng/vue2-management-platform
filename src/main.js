@@ -18,6 +18,25 @@ Vue.use(VueRouter);// 安装路由功能
 Vue.use(VueRouter);
 Vue.use(VueResource);
 Vue.use(ElementUI);
+
+// 后端对比cookies判断是否登录，凡接口response的header带有x-auth-token的即未登录，跳转首页。
+// Vue.http.interceptors.push((request, next) => {
+//   request.credentials = true;
+//   next((response) => {
+//     let messageHeader;
+//     /* global IS_PRODUCTION:true */
+//     if (IS_PRODUCTION) {
+//       messageHeader = "X-Auth-Token";
+//     } else {
+//       messageHeader = "x-auth-token";
+//     }
+//     if (messageHeader in response.headers.map) {
+//       router.push({path: '/login'});
+//     }
+//     return response
+//   });
+// });
+
 let routes = [
   {
     path: '/',

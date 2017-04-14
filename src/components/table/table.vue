@@ -87,8 +87,6 @@
       </el-form>
     </el-dialog>
   </section>
-
-
 </template>
 <script type="text/ecmascript-6">
   const ERR_OK = "000";
@@ -138,6 +136,10 @@
       },
       handleDelete (index, row) {
         this.tableData.splice(index, 1);
+        this.$message({
+          message: "操作成功！",
+          type: 'success'
+        });
       },
       handleEdit (index, row) {
         this.dialogFormVisible = true;
