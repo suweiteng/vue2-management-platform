@@ -252,5 +252,3 @@
     }
   };
 </script>
-<style>
-</style>
