@@ -21,8 +21,10 @@ module.exports = {
     env: require('./dev.env'),
     port: 8082,
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
+    assetsPublicPath: '/',  //为gh-pages设置，服务器配置可去掉本句用“/”
+    proxyTable: {
+      // '/sale': 'http://192.168.0.15:8432'
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
