@@ -7,7 +7,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: '/vue2-management-platform/', //为gh-pages设置，服务器配置可去掉本句用“/”
     productionSourceMap: false,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -21,7 +21,7 @@ module.exports = {
     env: require('./dev.env'),
     port: 8082,
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/vue2-management-platform/',  //为gh-pages设置，服务器配置可去掉本句用“/”
+    assetsPublicPath: '/',
     proxyTable: {
       // '/sale': 'http://192.168.0.15:8432'
     },
