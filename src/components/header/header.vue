@@ -35,6 +35,7 @@
     padding: 0 20px;
     z-index: 1;
     box-sizing: border-box;
+    position: fixed;
   }
   .header-logo {
     display: inline-block;
