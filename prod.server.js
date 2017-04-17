@@ -33,7 +33,7 @@ app.use(router);
 //
 // app.use('/api', apiRouter);
 
-app.use(express.static('.//vue2-management-platform/dist'));
+app.use(express.static('./dist'));
 
 module.exports = app.listen(port, function (err) {
 	if (err) {

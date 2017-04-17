@@ -21,7 +21,7 @@ module.exports = {
     env: require('./dev.env'),
     port: 8082,
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/vue2-management-platform',  //为gh-pages设置，服务器配置可去掉本句用“/”
+    assetsPublicPath: '/vue2-management-platform/',  //为gh-pages设置，服务器配置可去掉本句用“/”
     proxyTable: {
       // '/sale': 'http://192.168.0.15:8432'
     },
