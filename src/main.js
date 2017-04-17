@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import VueResource from 'vue-resource';
+import axios from 'axios';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import App from './App';
@@ -16,7 +16,7 @@ Mock.mockData();
 Vue.use(VueRouter);// 安装路由功能
 /* eslint-disable no-new */
 Vue.use(VueRouter);
-Vue.use(VueResource);
+Vue.prototype.$http = axios;
 Vue.use(ElementUI);
 
 // 后端对比cookies判断是否登录，凡接口response的header带有x-auth-token的即未登录，跳转首页。

@@ -117,13 +117,13 @@
     },
     created () {
       this.$http.get('/api/getTable').then((response) => {
-        response = response.body;
+        response = response.data;
         if (response.code === ERR_OK) {
           this.tableData = response.datas;
         }
       });
       this.$http.get('/api/getOptions').then((response) => {
-        response = response.body;
+        response = response.data;
         if (response.code === ERR_OK) {
           this.options = response.datas;
           this.places = response.places;

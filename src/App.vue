@@ -2,7 +2,6 @@
   <el-row class="container" style="height: 100%">
     <v-header :user="user"></v-header>
     <el-col :span="24" class="main">
-      <!--v-if="!item.children[0].hidden"-->
       <el-row>
         <el-menu :default-active="$route.path" class="mar-l el-menu-vertical-demo el-col el-col-3" light router>
           <template v-for="(item,index) in $router.options.routes[0].children" v-if="!item.hidden">
@@ -30,14 +29,8 @@
       };
     },
     created () {
-//      this.$http.get('/api/user').then((response) => {
-//        response = response.body;
-//        if (response.errno === ERR_OK) {
-//          this.user = response.data;
-//        }
-//      });
       this.$http.get('/api/user').then((response) => {
-        response = response.body;
+        response = response.data;
         if (response.code === ERR_OK) {
           this.user = response.datas;
         }
