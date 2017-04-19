@@ -1,4 +1,4 @@
-# vue2-management-platform
+# vue2-management-platform（请点右上角star）
 vue2.0 + elementUI 后台管理平台 
 访问： https://reg21st.github.io/vue2-management-platform
 
@@ -28,3 +28,4 @@ npm run dev
 # build for production with minification
 npm run build
 ```
+请点右上角star，谢谢
