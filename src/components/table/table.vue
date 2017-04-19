@@ -28,6 +28,7 @@
             </el-select>
           </el-form-item>
           <el-button type="primary" @click="onSubmit">查询</el-button>
+          <a href="javascript:;" id="download" style="float: right;color: #169bd5;font-size: 14px;padding-top: 7px" @click="download()" download="download.csv">导出数据</a>
         </el-form>
         <!--表格-->
         <el-table
@@ -169,6 +170,18 @@
         }).catch(() => {
 
         });
+      },
+      download: function() {
+        var obj = document.getElementById('download');
+        var str = "姓名,出生日期,地址\n";
+        for (var i = 0; i < this.tableData.length; i++) {
+          var item = this.tableData[i];
+          str += item.name + ',' + item.date + ',' + item.address;
+          str += "\n";
+        }
+        str = encodeURIComponent(str);
+        obj.href = "data:text/csv;charset=utf-8,\ufeff" + str;
+        obj.download = "download.csv";
       },
       handleSizeChange(val) {
         console.log(`每页 ${val} 条`);
