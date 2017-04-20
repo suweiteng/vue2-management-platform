@@ -253,9 +253,6 @@
   };
 </script>
 <style>
-  .chart-container{
-    background-color: #F2F2F2;
-  }
   .chart{
     background-color: white;
     border-radius: 4px;

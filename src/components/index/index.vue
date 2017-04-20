@@ -31,6 +31,9 @@
   };
 </script>
 <style>
+  .chart-container{
+    background-color: #F2F2F2;
+  }
   .show-section {
     margin: 10px;
     border-radius: 4px;
