@@ -32,7 +32,7 @@
     top: 0;
     left: 0;
     padding: 0 20px;
-    z-index: 1;
+    z-index: 999;
     box-sizing: border-box;
     position: fixed;
   }
