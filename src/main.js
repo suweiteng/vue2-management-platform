@@ -6,12 +6,18 @@ import axios from 'axios';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import App from './App';
-import Index from './components/index/index';
-import Table from './components/table/table';
-import Form from './components/form/form';
-import other from './components/other/other';
+import Index from './views/index/index';
+import Table from './views/table/table';
+import Form from './views/form/form';
+import ue from './views/editor/editor';
 import 'font-awesome/css/font-awesome.min.css';
 import Mock from './mock/mock';
+
+import '../static/UE/ueditor.config.js'
+import '../static/UE/ueditor.all.min.js'
+import '../static/UE/lang/zh-cn/zh-cn.js'
+import '../static/UE/ueditor.parse.min.js'
+
 Mock.mockData();
 Vue.use(VueRouter);// 安装路由功能
 /* eslint-disable no-new */
@@ -45,7 +51,7 @@ let routes = [
       {path: '/index', component: Index, name: 'index', class: 'fa-line-chart'},
       {path: '/table', component: Table, name: 'table', class: 'fa-table'},
       {path: '/form', component: Form, name: 'form', class: 'fa-newspaper-o'},
-      {path: '/other', component: other, name: 'other', class: 'fa-plug'}
+      {path: '/editor', component: ue, name: 'editor', class: 'fa-plug'}
     ]
   }
 ];

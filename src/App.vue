@@ -20,7 +20,7 @@
   </el-row>
 </template>
 <script>
-  import header from './components/header/header.vue';
+  import header from './views/header/header.vue';
   const ERR_OK = "000";
   export default {
     data () {
