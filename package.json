@@ -2,7 +2,7 @@
   "name": "vue2-management-platform",
   "version": "1.0.1",
   "description": "A Vue.js project",
-  "author": "suwt <891711995@qq.com>",
+  "author": "suwt <suweiteng1989@qq.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
