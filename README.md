@@ -15,7 +15,9 @@ vue2.0 + elementUI 后台管理平台
 # 更新
 ### 增加富文本编辑器
 2017年7月11日：集成Ueditor富文本编辑器，作为公共组件。
+
 教程：http://www.cnblogs.com/dmcl/p/7152711.html
+
 效果如下：
 ![](http://images2015.cnblogs.com/blog/1023587/201707/1023587-20170711213454306-1844528970.png)
  
