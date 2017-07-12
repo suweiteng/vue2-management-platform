@@ -20,6 +20,7 @@ vue2.0 + elementUI 后台管理平台
 
 效果如下：
 ![](http://images2015.cnblogs.com/blog/1023587/201707/1023587-20170711213454306-1844528970.png)
+在线体验本功能：https://suweiteng.github.io/vue2-management-platform/#/editor
  
  
 # 截图预览
