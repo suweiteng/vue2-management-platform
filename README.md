@@ -1,21 +1,21 @@
 # vue2-management-platform（请点右上角star）
-vue2.0 + elementUI 后台管理平台 
+vue2.0 + elementUI 后台管理平台
 访问： https://suweiteng.github.io/vue2-management-platform
 
 # 概述
 最近学习vue2.0和elementUI的使用，在各种文档的帮助下，尝试编写了一个后台管理平台。
 目前数据采用mock.js模拟，比较简略。后续会进行细化并增加登录等功能。
-# 依赖项版本  
-    "vue": "^2.1.0",   
+# 依赖项版本
+    "vue": "^2.1.0",
     "vue-router": "^2.1.3", // vue.js官方路由
     "axios": "^0.16.1",   // 官方已不再推荐使用vue-resource，如今推荐axios。
     "element-ui": "^1.2.3", // 样式库
     "mockjs": "^1.0.1-beta3", //模拟数据使用
      具体请参考https://github.com/reg21st/vue_ui_test/blob/master/package.json
 # 更新
-### 增加富文本编辑器
+### 增加富文本编辑器(beta1.6)
 2017年7月11日：集成Ueditor富文本编辑器，作为公共组件。
-
+2017年7月13日：编辑器支持同页面多次调用。
 教程：http://www.cnblogs.com/dmcl/p/7152711.html
 
 效果如下：

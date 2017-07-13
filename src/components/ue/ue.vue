@@ -1,6 +1,6 @@
 <template>
   <div>
-    <script id="editor" type="text/plain"></script>
+    <script :id=id type="text/plain"></script>
   </div>
 </template>
 <script>
@@ -17,11 +17,14 @@
       },
       config: {
         type: Object
-      }
+      },
+      id: {
+        type: String
+      },
     },
     mounted() {
       const _this = this;
-      this.editor = UE.getEditor('editor', this.config); // 初始化UE
+      this.editor = UE.getEditor(this.id, this.config); // 初始化UE
       this.editor.addListener("ready", function () {
         _this.editor.setContent(_this.defaultMsg); // 确保UE加载完成后，放入内容。
       });
