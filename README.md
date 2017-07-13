@@ -12,6 +12,12 @@ vue2.0 + elementUI 后台管理平台
     "element-ui": "^1.2.3", // 样式库
     "mockjs": "^1.0.1-beta3", //模拟数据使用
      具体请参考https://github.com/reg21st/vue_ui_test/blob/master/package.json
+# 特别提醒
+ 为了便于在github在线预览效果,部分代码和本地运行配置不一样。目前有2处，代码中已有详细说明，遇到问题可自行修改：
+ 
+ 一是在`config/index.js`中的`assetsPublicPath: '/vue2-management-platform/'`,本地打包可改为`assetsPublicPath: '/'`
+ 
+ 二是在UE编辑器的配置`static/UE/ueditor.config.js`中，本地开发写`window.UEDITOR_HOME_URL = "/static/UE/"`即可。
 # 更新
 ### 增加富文本编辑器(beta1.6)
 2017年7月11日：集成Ueditor富文本编辑器，作为公共组件。
