@@ -20,9 +20,12 @@ vue2.0 + elementUI 后台管理平台
  二是在UE编辑器的配置`static/UE/ueditor.config.js`中，本地开发写`window.UEDITOR_HOME_URL = "/static/UE/"`即可。
 # 更新
 ### 增加富文本编辑器(beta1.6)
+
 2017年7月11日：集成Ueditor富文本编辑器，作为公共组件。
 
 2017年7月13日：编辑器支持同页面多次调用。
+
+2018年1月23日：编辑器支持小功能：获取纯文本(解决[博客](http://www.cnblogs.com/dmcl/p/7152711.html/ "博客")中40L评论的疑问)。
 
 教程：http://www.cnblogs.com/dmcl/p/7152711.html
 
