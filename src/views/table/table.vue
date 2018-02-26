@@ -5,7 +5,7 @@
         <!--表单-->
         <el-form :inline="true" :model="formInline" class="demo-form-inline">
           <el-form-item label="姓名">
-            <el-input v-model="formInline.user.name" placeholder="姓名"></el-input>
+            <el-input v-model="formInline.user.name" placeholder="姓名" style="width: 140px;"></el-input>
           </el-form-item>
           <el-form-item label="年份">
             <el-date-picker
@@ -28,7 +28,7 @@
             </el-select>
           </el-form-item>
           <el-button type="primary" @click="onSubmit">查询</el-button>
-          <a href="javascript:;" id="download" style="float: right;color: #169bd5;font-size: 14px;padding-top: 7px" @click="download()" download="download.csv">导出数据</a>
+          <a href="javascript:;" id="download" style="background-color:#409EFF;color: #fff;padding: 12px 10px!important;margin-left: 10px!important;border-radius:4px " @click="download()" download="download.csv">导出数据</a>
         </el-form>
         <!--表格-->
         <el-table
@@ -172,6 +172,7 @@
         });
       },
       download: function() {
+        console.log("xiazai")
         var obj = document.getElementById('download');
         var str = "姓名,出生日期,地址\n";
         for (var i = 0; i < this.tableData.length; i++) {
@@ -179,7 +180,9 @@
           str += item.name + ',' + item.date + ',' + item.address;
           str += "\n";
         }
+        console.log(obj)
         str = encodeURIComponent(str);
+        console.log(str)
         obj.href = "data:text/csv;charset=utf-8,\ufeff" + str;
         obj.download = "download.csv";
       },
