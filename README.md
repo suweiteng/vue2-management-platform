@@ -24,7 +24,7 @@ vue2.0 + elementUI 后台管理平台
     
     
 # 特别提醒
- 为了便于在github在线预览效果,部分代码和本地运行配置不一样。目前有2处，代码中已有详细说明，遇到问题可自行修改：
+ 为了便于项目在github pages直接在线预览，部分配置与本地运行配置不一样。目前有2处，代码中已有详细说明，遇到问题可自行修改：
  
  一是在`config/index.js`中的`assetsPublicPath: '/vue2-management-platform/'`,本地打包可改为`assetsPublicPath: '/'`
  
