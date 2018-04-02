@@ -70,7 +70,7 @@
         </div>
       </el-col>
     </el-row>
-    <el-dialog title="修改个人信息" v-model="dialogFormVisible" size="tiny">
+    <el-dialog title="修改个人信息" :visible="dialogFormVisible" size="tiny">
       <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="姓名">
           <el-input v-model="form.name"></el-input>
