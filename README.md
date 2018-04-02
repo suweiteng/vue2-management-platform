@@ -52,6 +52,9 @@ vue2.0 + elementUI 后台管理平台
 
 
 2018年2月26日：增加打包分析webpack-bundle-analyzer；优化导出功能。(beta2.1)  
+
+2018年4月2日：修复ElementUI升级2.x引起的弹窗问题:[issue 10](https://github.com/suweiteng/vue2-management-platform/issues/10) 
+
  
  
 # 截图预览
