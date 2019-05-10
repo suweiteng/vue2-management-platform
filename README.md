@@ -6,23 +6,11 @@ vue2.0 + elementUI 后台管理平台
 最近学习vue2.0和elementUI的使用，在各种文档的帮助下，尝试编写了一个后台管理平台。
 目前数据采用mock.js模拟，比较简略。后续会进行细化并增加登录等功能。
 # 依赖项版本
-
-
-~~"vue": "^2.1.0",~~
-
-~~"vue-router": "^2.1.3",~~ // vue.js官方路由
-    
-~~"axios": "^0.16.1",~~   // 官方已不再推荐使用vue-resource，如今推荐axios。
-
-~~"element-ui": "^1.2.3",~~ // 样式库
-
-  "mockjs": "^1.0.1-beta3", //模拟数据使用
-     
+  
      更新：vue已升级至2.5.X，elementUI已升级至2.2，其他相关依赖也已升级，
      具体请参考https://github.com/suweiteng/vue2-management-platform/blob/master/package.json
      
-    
-    
+     
 # 特别提醒
  为了便于项目在github pages直接在线预览，部分配置与本地运行配置不一样。目前有2处，代码中已有详细说明，遇到问题可自行修改：
  
